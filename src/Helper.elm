@@ -1,17 +1,22 @@
 module Helper exposing (..)
+
 import Html exposing (..)
 
-add2 : Int -> Int -> Int 
-add2 int1 int2  =
+
+add2 : Int -> Int -> Int
+add2 int1 int2 =
     int1 + int2
+
 
 add3 : Float -> Float -> Float -> Float
 add3 float1 float2 float3 =
     float1 + float2 + float3
 
+
 calc : Int -> Int -> (Int -> Int -> Int) -> Int
 calc int1 int2 operator =
     operator int1 int2
+
 
 type alias ProgrammingLanguage =
     { name : String
@@ -19,20 +24,24 @@ type alias ProgrammingLanguage =
     , currentVersion : String
     }
 
+
 languages : List ProgrammingLanguage
 languages =
     [ { name = "elm", releaseYear = 2012, currentVersion = "0.19.1" }
     , { name = "javascript", releaseYear = 1995, currentVersion = "ECMAScript 2025" }
     ]
 
+
 languageNames : List ProgrammingLanguage -> List String
 languageNames langs =
     List.map .name langs
+
 
 type alias User =
     { name : String
     , uType : String
     }
+
 
 users : List User
 users =
@@ -41,16 +50,19 @@ users =
     , { name = "Ana", uType = "Student" }
     ]
 
+
 onlyStudents : List User -> List String
 onlyStudents userList =
     List.map
         (\user ->
             if user.uType == "Student" then
                 user.name
+
             else
                 ""
         )
         userList
+
 
 type alias Videogame =
     { title : String
@@ -59,6 +71,7 @@ type alias Videogame =
     , downloads : Int
     , genres : List String
     }
+
 
 videogames : List Videogame
 videogames =
@@ -76,9 +89,11 @@ videogames =
       }
     ]
 
+
 getVideogameGenres : List Videogame -> List (List String)
 getVideogameGenres games =
     List.map .genres games
+
 
 type alias Computer =
     { ram : String
@@ -87,6 +102,7 @@ type alias Computer =
     , screenSize : String
     }
 
+
 myLaptop : Computer
 myLaptop =
     { ram = "16GB"
@@ -94,6 +110,7 @@ myLaptop =
     , brand = "Dell"
     , screenSize = "15.6"
     }
+
 
 main : Html msg
 main =
@@ -108,8 +125,3 @@ main =
                 ]
             ]
         ]
-
-
-
-
-
